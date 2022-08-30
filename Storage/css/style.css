@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300&display=swap');
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	font-family: "Oxanium";
+    font-weight: bold !important;
+}
+
+*::-webkit-scrollbar {
+	display: none;
+}
+
+:root {
+	--primary: 70, 160, 180;
+	--dark: 25, 25, 25;
+	--light: 210, 100, 120;
+	--trim: 255, 255, 255;
+}
+
+body {
+	margin: 0;
+}
+
+.full-screen-container {
+	height: 100vh;
+	width: 100vw;
+	background-image: url('../imgs/bg-06.jpg');
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container {
+	--color: rgb(var(--dark), 0.5);
+    max-width: 800px;
+	color: white;
+	border-radius: 0.5em;
+    backdrop-filter: blur(15px);
+	background-color: var(--color);
+	box-shadow: 0 0 15px 0 var(--color);
+	border: 3px solid rgb(var(--trim));
+    filter: drop-shadow(4px 4px 20px black);
+}
+
+.progress {
+    --color: rgb(var(--trim), 1);
+    height: 25px;
+	border-radius: 0.5em;
+    backdrop-filter: blur(15px);
+	background-color: var(--color);
+	border: 3px solid rgb(var(--trim));
+    transition: ease 5s;
+}
+
+.progress-bar {
+    background-color: black;
+}
+
+.progress-bar-title {
+    mix-blend-mode: difference;
+    position: absolute;
+    text-align: center;
+    line-height: 20px;
+    overflow: hidden;
+    color: #fff;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+
+.clock {
+    font-size: 30px;
+}
+
+.date {
+    font-size: 20px;
+}
+
+.search {
+    color: white;
+    font-size: 10px;
+}
+
+input {
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    background-color: transparent;
+    text-shadow: 0px 0px 1px grey;
+}
+
+textarea:focus, input:focus {
+    font-weight: bold;
+    outline: none;
+    text-shadow: 0px 0px 1px white;
+}
+
+hr {
+    margin-top: 2px;
+    color: rgb(var(--trim), 1);
+    border: 1px solid rgb(var(--trim), 1);
+}
+
+progress {
+    transition: ease .5s;
+}
+
+a,
+a:link,
+a:visited {
+    color: white;
+    text-decoration: none;
+    transition: ease .1s;
+}
+
+a:hover {
+    color: gray;
+}
