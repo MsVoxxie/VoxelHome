@@ -1,0 +1,5 @@
+{
+	"name": "VoxelHome",
+	"script": "index.js",
+	"watch": true
+}
