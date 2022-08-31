@@ -26,7 +26,6 @@ async function updateServer() {
 
 	// Get Data
 	const serverData = await fetchAsync('https://api.voxxie.me/api/system/statistics');
-	console.log(serverData);
 
 	const CPUValue = Math.floor(serverData.CpuUsage);
 	const MEMValue = Math.floor(serverData.UsedMem);
