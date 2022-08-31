@@ -48,14 +48,15 @@ body {
 .progress {
 	--color: rgb(var(--trim), 1);
 	height: 25px;
-	border-radius: 0.5em;
+	border-radius: .5em;
 	backdrop-filter: blur(15px);
 	background-color: var(--color);
-	border: 3px solid rgb(var(--trim));
+	border: 2px solid rgb(var(--trim));
 	transition: ease 5s;
 }
 
 .progress-bar {
+	border-radius: .5em;
 	background-color: black;
 }
 
@@ -69,6 +70,7 @@ body {
 	right: 0;
 	left: 0;
 	top: 0;
+	
 }
 
 .clock {
