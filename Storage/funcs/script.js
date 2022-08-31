@@ -2,8 +2,18 @@ function updatePage() {
 	getTime();
 	updateServer();
 	setInterval(getTime, 1000);
-	setInterval(updateServer, 1 * 1000);
+	setInterval(updateServer, 5 * 1000);
 }
+
+addEventListener('focus', (event) => {
+	const randHello = ['Hello!', 'Howdy!', 'Hey there!', 'Whats up?', 'Doing well?', 'Take it easy!', 'Welcome Home!'];
+	document.title = randHello[Math.floor(Math.random() * randHello.length)];
+});
+
+addEventListener('blur', (event) => {
+	const randBye = ['See ya!', 'Later!', 'Take it easy!', 'Take care!', 'Toodles!', 'Have a good one!', 'Bye bye!'];
+	document.title = randBye[Math.floor(Math.random() * randBye.length)];
+});
 
 async function fetchAsync(url) {
 	let response = await fetch(url);
