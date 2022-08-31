@@ -41,7 +41,7 @@ body {
 	backdrop-filter: blur(15px);
 	background-color: var(--color);
 	box-shadow: 0 0 15px 0 var(--color);
-	border: 3px solid rgb(var(--trim));
+	border: 2px solid rgb(var(--trim));
 	filter: drop-shadow(4px 4px 20px black);
 }
 
