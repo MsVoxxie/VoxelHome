@@ -6,7 +6,6 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3006;
 const app = express();
 
-
 // Views
 const Views = {
 	home: path.join(`${__dirname}/Storage/views/home.ejs`),

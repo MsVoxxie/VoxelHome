@@ -2,7 +2,7 @@ function updatePage() {
 	getTime();
 	updateServer();
 	setInterval(getTime, 1000);
-	setInterval(updateServer, 5 * 1000);
+	setInterval(updateServer, 1 * 1000);
 }
 
 async function fetchAsync(url) {
@@ -13,7 +13,7 @@ async function fetchAsync(url) {
 }
 
 async function updateServer() {
-    // Selectors
+	// Selectors
 	const CPU = document.getElementById('CPU');
 	const CPUText = document.getElementById('cpu-title');
 
@@ -23,15 +23,17 @@ async function updateServer() {
 	const DISK = document.getElementById('DISK');
 	const DISKText = document.getElementById('disk-title');
 
-    // Get Data
-    const serverData = await fetchAsync('https://api.voxxie.me/api/system/statistics');
-    console.log(serverData);
+	const HOSTNAME = document.getElementById('systemstats');
+
+	// Get Data
+	const serverData = await fetchAsync('https://api.voxxie.me/api/system/statistics');
+	console.log(serverData);
 
 	const CPUValue = Math.floor(serverData.CpuUsage);
 	const MEMValue = Math.floor(serverData.UsedMem);
 	const DISKValue = Math.floor(serverData.DiskUsage);
 
-    // Apply Data
+	// Apply Data
 	CPU.style.width = `${CPUValue}%`;
 	CPUText.innerHTML = `CPU: ${CPUValue}%`;
 
@@ -40,6 +42,8 @@ async function updateServer() {
 
 	DISK.style.width = `${DISKValue}%`;
 	DISKText.innerHTML = `DISK: ${DISKValue}%`;
+
+	HOSTNAME.innerHTML = `${serverData.Hostname.toUpperCase()}`;
 }
 
 function getTime() {
