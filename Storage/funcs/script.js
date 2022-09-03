@@ -1,8 +1,10 @@
+const { APILogin } = require('./util');
+
 function updatePage() {
 	getTime();
-	updateServer();
+	updateServerStats();
 	setInterval(getTime, 1000);
-	setInterval(updateServer, 5 * 1000);
+	setInterval(updateServerStats, 15 * 1000);
 }
 
 addEventListener('focus', (event) => {
@@ -21,7 +23,7 @@ async function fetchAsync(url) {
 	return data;
 }
 
-async function updateServer() {
+async function updateServerStats() {
 	// Selectors
 	const CPU = document.getElementById('CPU');
 	const CPUText = document.getElementById('cpu-title');

@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300&display=swap');
+*,
+*::before,
+*::after {
+	color: white;
+	box-sizing: border-box;
+	font-family: 'Oxanium';
+	transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.2s;
+}
+
+*::-webkit-scrollbar {
+	display: none;
+}
+
+:root {
+	--corners: 0.25em;
+	--primary: 70, 160, 180;
+	--dark: 25, 25, 25;
+	--light: 168, 168, 168;
+	--trim: 255, 255, 255;
+	--online: 113, 207, 76;
+	--offline: 207, 76, 76;
+}
+
+body {
+	margin: 0;
+}
+
+.full-screen-container {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	background-size: cover;
+	justify-content: center;
+	background-position: center;
+	background-image: url('../imgs/bg-06.jpg');
+}
+
+.server-tile {
+	font-weight: bold;
+	font-size: 1.15em;
+	--color: rgb(var(--dark), 0.5);
+	border-radius: var(--corners);
+	backdrop-filter: blur(15px);
+	background-color: var(--color);
+	box-shadow: 0 0 15px 0 var(--color);
+	filter: drop-shadow(4px 4px 20px black);
+}
+
+.server-tile.online {
+	border: 2px solid rgb(var(--online), 0.5);
+}
+
+.server-tile.offline {
+	border: 2px solid rgb(var(--offline), 0.5);
+}
+
+.hr-sect {
+	display: flex;
+	flex-basis: 100%;
+	align-items: center;
+	color: white;
+	margin: 8px 0px;
+}
+
+.progress {
+	position: relative;
+	border-radius: var(--corners);
+	background-color: transparent;
+}
+
+.progress-bar {
+	border-radius: var(--corners);
+	mix-blend-mode: difference;
+	background-color: rgb(var(--light), 0.2)
+}
+
+.progress-bar-title {
+	mix-blend-mode: difference;
+	font-size: 1.2em;
+	font-weight: normal;
+	position: absolute;
+	text-align: center;
+	line-height: 19px;
+	overflow: hidden;
+	color: #fff;
+	right: 0;
+	left: 0;
+	top: 0;
+}

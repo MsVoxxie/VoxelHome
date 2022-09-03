@@ -4,7 +4,8 @@
 *::after {
 	box-sizing: border-box;
 	font-family: 'Oxanium';
-	font-weight: bold !important;
+	font-weight: bold;
+	transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.2s;
 }
 
 *::-webkit-scrollbar {
@@ -12,6 +13,7 @@
 }
 
 :root {
+	--corners: 0.25em;
 	--primary: 70, 160, 180;
 	--dark: 25, 25, 25;
 	--light: 210, 100, 120;
@@ -37,7 +39,7 @@ body {
 	--color: rgb(var(--dark), 0.5);
 	max-width: 620px;
 	color: white;
-	border-radius: 0.5em;
+	border-radius: var(--corners);
 	backdrop-filter: blur(15px);
 	background-color: var(--color);
 	box-shadow: 0 0 15px 0 var(--color);
@@ -45,18 +47,22 @@ body {
 	filter: drop-shadow(4px 4px 20px black);
 }
 
+.server-tile {
+	align-items: center;
+	vertical-align: middle;
+}
+
 .progress {
 	--color: rgb(var(--trim), 1);
 	height: 25px;
-	border-radius: .5em;
+	border-radius: var(--corners);
 	backdrop-filter: blur(15px);
 	background-color: var(--color);
 	border: 2px solid rgb(var(--trim));
-	transition: ease 5s;
 }
 
 .progress-bar {
-	border-radius: .5em;
+	border-radius: var(--corners);
 	background-color: black;
 }
 
@@ -70,7 +76,6 @@ body {
 	right: 0;
 	left: 0;
 	top: 0;
-	
 }
 
 .clock {
@@ -106,8 +111,22 @@ input:focus {
 
 hr {
 	margin-top: 2px;
+	background-color: inherit;
 	color: rgb(var(--trim), 1);
 	border: 1px solid rgb(var(--trim), 1);
+}
+
+.txt-btn {
+	border: none;
+	margin: none;
+	padding: none;
+	cursor: pointer;
+	color: rgb(var(--trim), 1);
+	background-color: transparent;
+}
+
+.txt-btn:hover {
+	color: gray;
 }
 
 .hr-sect {
@@ -129,16 +148,11 @@ hr {
 	margin: 0px 0px;
 }
 
-progress {
-	transition: ease 0.5s;
-}
-
 a,
 a:link,
 a:visited {
 	color: white;
 	text-decoration: none;
-	transition: ease 0.1s;
 }
 
 a:hover {
