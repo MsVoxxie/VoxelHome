@@ -16,7 +16,14 @@
 				<div class="row row-cols-2 justify-content-center">
 					<% Instances.forEach((instance) => { %>
 					<div class="col-5 p-2 m-2 server-tile <%= `${instance.Running ? 'online' : 'offline'}` %>">
-						<span><%= instance.FriendlyName %></span>
+						<div class="row">
+							<div class="col">
+								<span style="float: left"><%= instance.FriendlyName %></span>
+							</div>
+							<div class="col">
+								<span style="float: right; color: rgb(255, 255, 255, 0.15)"><%= instance.Module %></span>
+							</div>
+						</div>
 						<div class="progress m-1">
 							<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= instance.Metrics.CPUPer %>%"></div>
 							<div class="progress-bar-title">CPU Usage <%= instance.Metrics.CPUPer %>%</div>

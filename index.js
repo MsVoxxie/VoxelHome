@@ -3,6 +3,7 @@ const express = require('express');
 const https = require('https');
 const path = require('path');
 const fs = require('fs');
+const { Module } = require('module');
 require('dotenv').config();
 const PORT = process.env.PORT || 3006;
 const app = express();
@@ -33,16 +34,17 @@ app.get('/servers', async (req, res) => {
 	allInstances[0].AvailableInstances.map((inst) => {
 		Servers.push({
 			FriendlyName: inst.FriendlyName,
+			Module: inst.Module == 'GenericModule' ? 'Custom' : inst.Module == 'srcds' ? 'Source' : inst.Module,
 			Running: inst.Running,
 			Metrics: {
-				CPUPer: inst?.Metrics?.['CPU Usage'].Percent ? inst.Metrics['CPU Usage'].Percent : 0,
-				CPUUsed: inst?.Metrics?.['CPU Usage'].MaxValue ? `${inst.Metrics['CPU Usage'].RawValue} / ${inst.Metrics['CPU Usage'].MaxValue}` : '0',
+				CPUPer: inst?.Metrics?.['CPU Usage']?.Percent ? inst.Metrics['CPU Usage'].Percent : 0,
+				CPUUsed: inst?.Metrics?.['CPU Usage']?.MaxValue ? `${inst.Metrics['CPU Usage'].RawValue} / ${inst.Metrics['CPU Usage'].MaxValue}` : '0',
 
-				MemPer: inst?.Metrics?.['Memory Usage'].Percent ? inst.Metrics['Memory Usage'].Percent : 0,
-				MemUsed: inst?.Metrics?.['Memory Usage'].MaxValue ? `${inst.Metrics['Memory Usage'].RawValue} / ${inst.Metrics['Memory Usage'].MaxValue}` : '0',
+				MemPer: inst?.Metrics?.['Memory Usage']?.Percent ? inst.Metrics['Memory Usage'].Percent : 0,
+				MemUsed: inst?.Metrics?.['Memory Usage']?.MaxValue ? `${inst.Metrics['Memory Usage'].RawValue} / ${inst.Metrics['Memory Usage'].MaxValue}` : '0',
 
-				UsersPer: inst?.Metrics?.['Active Users'].Percent ? inst.Metrics['Active Users'].Percent : 0,
-				UsersTotal: inst?.Metrics?.['Active Users'].MaxValue ? `${inst.Metrics['Active Users'].RawValue} / ${inst.Metrics['Active Users'].MaxValue}` : '0 / 0',
+				UsersPer: inst?.Metrics?.['Active Users']?.Percent ? inst.Metrics['Active Users'].Percent : 0,
+				UsersTotal: inst?.Metrics?.['Active Users']?.MaxValue ? `${inst.Metrics['Active Users'].RawValue} / ${inst.Metrics['Active Users'].MaxValue}` : '0 / 0',
 			},
 		});
 	});
