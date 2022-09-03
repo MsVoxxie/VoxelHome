@@ -2,10 +2,11 @@
 *,
 *::before,
 *::after {
+	color: white;
+	font-weight: bold;
 	box-sizing: border-box;
 	font-family: 'Oxanium';
-	font-weight: bold;
-	transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.2s;
+	transition: 0.2s ease-in-out;
 }
 
 *::-webkit-scrollbar {
@@ -27,12 +28,13 @@ body {
 .full-screen-container {
 	height: 100vh;
 	width: 100vw;
-	background-image: url('../imgs/bg-06.jpg');
-	background-size: cover;
-	background-position: center;
 	display: flex;
-	justify-content: center;
+	transition: none;
 	align-items: center;
+	background-size: cover;
+	justify-content: center;
+	background-position: center;
+	background-image: url('../imgs/bg-06.jpg');
 }
 
 .container {
