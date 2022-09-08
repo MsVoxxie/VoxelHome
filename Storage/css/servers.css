@@ -32,10 +32,7 @@ body {
 	display: flex;
 	transition: none;
 	align-items: center;
-	background-size: cover;
 	justify-content: center;
-	background-position: center;
-	background-image: url('../imgs/bg-06.jpg');
 }
 
 .server-tile {

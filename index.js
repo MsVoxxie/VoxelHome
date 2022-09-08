@@ -3,10 +3,10 @@ const express = require('express');
 const https = require('https');
 const path = require('path');
 const fs = require('fs');
-const { Module } = require('module');
 require('dotenv').config();
 const PORT = process.env.PORT || 3006;
 const app = express();
+
 // Views
 const Views = {
 	home: path.join(`${__dirname}/Storage/views/home.ejs`),
