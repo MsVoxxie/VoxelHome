@@ -3,7 +3,8 @@ function updatePage() {
 	setBackground();
 	updateServerStats();
 	setInterval(getTime, 1000);
-	setInterval(updateServerStats, 15 * 1000);
+	setInterval(updateServerStats, 10 * 1000);
+	console.log(window.navigator.userLanguage || window.navigator.language);
 }
 
 addEventListener('focus', (event) => {

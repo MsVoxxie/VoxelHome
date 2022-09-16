@@ -35,6 +35,11 @@ body {
 	justify-content: center;
 }
 
+.container {
+	height: 100%;
+	overflow: scroll;
+}
+
 .server-tile {
 	font-weight: bold;
 	font-size: 1.15em;
@@ -44,6 +49,19 @@ body {
 	background-color: var(--color);
 	box-shadow: 0 0 15px 0 var(--color);
 	filter: drop-shadow(4px 4px 20px black);
+}
+
+.hidden {
+	opacity: 0;
+	filter: blur(5px);
+	translate: -100%;
+	transition: all .5s;
+}
+
+.show {
+	opacity: 1;
+	filter: blur(0);
+	translate: 0%;
 }
 
 .server-tile.online {
