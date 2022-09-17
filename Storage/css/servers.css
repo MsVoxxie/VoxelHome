@@ -6,6 +6,8 @@
 	box-sizing: border-box;
 	font-family: 'Oxanium';
 	transition: 0.2s ease-in-out;
+	overflow: -moz-scrollbars-none;
+	scrollbar-width: none;
 }
 
 *::-webkit-scrollbar {
@@ -24,6 +26,8 @@
 
 body {
 	margin: 0;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 span {
@@ -55,6 +59,48 @@ span {
 	background-color: var(--color);
 	box-shadow: 0 0 15px 0 var(--color);
 	filter: drop-shadow(4px 4px 20px black);
+}
+
+.auth-granted {
+	position:absolute;
+	height: 25px;
+	width: 25px;
+	--color: rgb(var(--dark), 0.5);
+	border-radius: var(--corners);
+	backdrop-filter: blurr(15px);
+	background-color: var(--color);
+	box-shadow: 0 0 15px 0 var(--color);
+	filter: drop-shadow(4px 4px 20px black);
+	animation-name: auth-color;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes auth-color {
+	0% {
+		border: 2px solid rgb(var(--online), 0.5);
+	}
+	50% {
+		border: 2px solid rgb(var(--offline), 0.5);
+	}
+	100% {
+		border: 2px solid rgb(var(--online), 0.5);
+	}
+}
+
+.auth-denied {
+	position:absolute;
+	height: 25px;
+	width: 25px;
+	--color: rgb(var(--dark), 0.5);
+	border-radius: var(--corners);
+	backdrop-filter: blurr(15px);
+	background-color: var(--color);
+	box-shadow: 0 0 15px 0 var(--color);
+	filter: drop-shadow(4px 4px 20px black);
+	animation-name: auth-color;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
 }
 
 .hidden {
