@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+	color: rgb(var(--text));
+	font-weight: bold;
+	box-sizing: border-box;
+	transition: 0.2s ease-in-out;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*::-webkit-scrollbar {
+	display: none;
+}
+
+:root {
+	--corners: 0.25em;
+	--primary: 70, 160, 180;
+	--dark: 35, 35, 35;
+	--dark-alt: 50, 50, 50;
+	--light: 210, 100, 120;
+	--trim: 255, 255, 255;
+	--text: 255, 255, 255;
+	--text-alt: 175, 175, 175;
+}
+
+body {
+	background-color: #36393f;
+	color: whitesmoke;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: underline;
+}
+
+h1 {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+select option {
+	color: black;
+	background-color: white;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	height: 30px;
+	width: 100px;
+	--color: rgb(var(--dark), 0.5);
+	color: rgb(var(--text));
+	border-radius: var(--corners);
+	backdrop-filter: blur(15px);
+	background-color: var(--color);
+	box-shadow: 0 0 15px 0 var(--color);
+	border: 2px solid rgb(var(--trim));
+	filter: drop-shadow(4px 4px 20px black);
+}
+
+.footer {
+	margin: 0;
+	padding: 0;
+	position: sticky;
+	font-size: smaller;
+}
+
+.full-screen-container {
+	height: 90vh;
+	width: 100vw;
+	display: flex;
+	transition: none;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	color: rgb(var(--text));
+	width: 556px;
+	--color: rgb(var(--dark), 0.5);
+	border-radius: var(--corners);
+	backdrop-filter: blur(15px);
+	background-color: var(--color);
+	box-shadow: 0 0 15px 0 var(--color);
+	border: 2px solid rgb(var(--trim));
+	filter: drop-shadow(4px 4px 20px black);
+}
+
+.datetime {
+	width: 200px;
+	color: rgb(var(--text));
+	font-size: small;
+	--color: rgb(var(--dark), 0.5);
+	background-color: var(--color);
+	border-radius: var(--corners);
+	border: 2px solid rgb(var(--trim));
+}
+
+.format {
+	width: 200px;
+	color: rgb(var(--text));
+	align-items: center;
+	justify-content: center;
+	--color: rgb(var(--dark), 0.5);
+	background-color: var(--color);
+	border-radius: var(--corners);
+	border: 2px solid rgb(var(--trim));
+	text-decoration: none;
+}
+
+.output {
+	/* height: 25px; */
+	color: rgb(var(--text-alt));
+	border-radius: var(--corners);
+	border: 2px solid rgb(var(--trim));
+	background-color: rgb(var(--dark-alt));
+}
+
+#copy_notif {
+	display: none;
+}

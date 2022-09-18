@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+		<link rel="stylesheet" href="../assets/views/tools/timestamp/timestamp.css" />
+		<script defer src="../assets/views/tools/timestamp/timestamp.js"></script>
+		<title>Timestamp - Sapphire Tools</title>
+	</head>
+	<body>
+		<div class="full-screen-container">
+			<div class="container text-center">
+				<h1>Timestamp Markdown</h1>
+				<hr />
+				<div class="row row-cols-2 d-flex justify-content-center">
+					<div class="col-5 p-2 m-1">
+						<span>Select Desired Time</span>
+						<input class="datetime" type="datetime-local" name="DateTime" id="datetime" placeholder="<%= Date.now() %> " />
+					</div>
+					<div class="col-5 p-2 m-1">
+						<span>Select Format</span>
+						<div class="row">
+							<div class="col">
+								<select class="format" name="Format" id="format">
+									<option value="f">Short date & time</option>
+									<option value="F">Long date & time</option>
+									<option value="d">Short date</option>
+									<option value="D">Long date</option>
+									<option value="t">Short time</option>
+									<option value="T">Long time</option>
+									<option value="R">Relative time</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="col-3 p-2 m-1">
+						<button id="generate" onclick="Generate()">Generate</button>
+					</div>
+					<div class="col-3 p-2 m-1">
+						<code><xmp class="output m-1" id="output">Output</xmp></code>
+					</div>
+					<div class="col-3 p-2 m-1">
+						<button id="copy" onclick="Copy('output')">Copy</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer p-3">
+			<hr />
+			<a href="https://github.com/SapphSky/TimestampMarkdown">Github Page</a> | Made with ♥.
+		</div>
+	</body>
+</html>

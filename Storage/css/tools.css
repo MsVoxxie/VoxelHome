@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after {
+	color: white;
+	font-weight: bold;
+	box-sizing: border-box;
+	font-family: 'Oxanium';
+	backface-visibility: hidden;
+	transition: 0.2s ease-in-out;
+	font-smooth: subpixel-antialiased;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+*::-webkit-scrollbar {
+	display: none;
+}
+
+:root {
+	--corners: 0.25em;
+	--primary: 70, 160, 180;
+	--dark: 35, 35, 35;
+	--light: 210, 100, 120;
+	--trim: 255, 255, 255;
+}
+
+body {
+	margin: 0;
+}
+
+.full-screen-container {
+	height: 90vh;
+	width: 100vw;
+	display: flex;
+	transition: none;
+	align-items: center;
+	justify-content: center;
+}
+
+/* .container {
+	color: white;
+	--color: rgb(var(--dark), 0.5);
+	border-radius: var(--corners);
+	backdrop-filter: blur(15px);
+	background-color: var(--color);
+	box-shadow: 0 0 15px 0 var(--color);
+	border: 2px solid rgb(var(--trim));
+	filter: drop-shadow(4px 4px 20px black);
+} */
+
+.container {
+	width: 50vw;
+}
+
+.tool-tile:hover {
+	border: 2px dashed rgb(var(--trim));
+}
+
+.title {
+	font-size: 1em;
+}
+
+.author {
+	font-size: 0.85em;
+}
+
+.url {
+	font-size: 0.8em;
+}
+
+a,
+a:visited {
+	color: whitesmoke;
+	text-decoration: none;
+}
+
+a:hover {
+	color: gray;
+}
+
+button.tool-tile {
+	min-width: 300px;
+	font-weight: bold;
+	font-size: 1.15em;
+	--color: rgb(var(--dark), 0.5);
+	backdrop-filter: blur(15px);
+	border-radius: var(--corners);
+	background-color: var(--color);
+	border: 2px solid rgb(var(--trim));
+	box-shadow: 0 0 15px 0 var(--color);
+	filter: drop-shadow(4px 4px 20px black);
+}

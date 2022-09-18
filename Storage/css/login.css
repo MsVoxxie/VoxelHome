@@ -13,6 +13,10 @@ h1 {
 	color: white;
 }
 
+.err {
+	color: white;
+}
+
 .container {
 	border-radius: var(--corners);
 	backdrop-filter: blurr(15px);
