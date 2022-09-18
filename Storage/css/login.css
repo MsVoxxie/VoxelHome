@@ -1,0 +1,37 @@
+:root {
+	--corners: 1em;
+	--dark: 35, 35, 35;
+	--fade1: 113, 207, 76;
+	--fade2: 207, 76, 76;
+}
+
+body {
+	background-color: rgb(var(--dark));
+}
+
+h1 {
+	color: white;
+}
+
+.container {
+	border-radius: var(--corners);
+	backdrop-filter: blurr(15px);
+	background-color: var(--color);
+	box-shadow: 0 0 15px 0 var(--color);
+	filter: drop-shadow(4px 4px 20px black);
+	animation-name: color-cycle;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes color-cycle {
+	0% {
+		border: 2px solid rgb(var(--fade1), 0.5);
+	}
+	50% {
+		border: 2px solid rgb(var(--fade2), 0.5);
+	}
+	100% {
+		border: 2px solid rgb(var(--fade1), 0.5);
+	}
+}

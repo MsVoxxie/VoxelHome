@@ -17,7 +17,7 @@
 :root {
 	--corners: 0.25em;
 	--primary: 70, 160, 180;
-	--dark: 25, 25, 25;
+	--dark: 35, 35, 35;
 	--light: 168, 168, 168;
 	--trim: 255, 255, 255;
 	--online: 113, 207, 76;
@@ -45,7 +45,7 @@ span {
 }
 
 .container {
-	height: 100%;
+	height: 95vh;
 	overflow: scroll;
 }
 
