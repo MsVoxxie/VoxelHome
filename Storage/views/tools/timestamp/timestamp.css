@@ -58,6 +58,19 @@ button {
 	filter: drop-shadow(4px 4px 20px black);
 }
 
+input[type='datetime-local']::-webkit-calendar-picker-indicator {
+	background: transparent;
+	bottom: 0;
+	color: transparent;
+	cursor: pointer;
+	height: auto;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: auto;
+}
+
 .footer {
 	margin: 0;
 	padding: 0;
@@ -96,6 +109,28 @@ button {
 	border: 2px solid rgb(var(--trim));
 }
 
+.datetime input {
+	border: none;
+	box-sizing: border-box;
+	outline: 0;
+	padding: 0.75rem;
+	position: relative;
+	width: 100%;
+}
+
+.datetime-container {
+	display: flex;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.datetime-icon {
+	right: -90%;
+	color: white;
+	text-align: center;
+	position: relative;
+}
+
 .format {
 	width: 200px;
 	color: rgb(var(--text));
@@ -109,7 +144,6 @@ button {
 }
 
 .output {
-	/* height: 25px; */
 	color: rgb(var(--text-alt));
 	border-radius: var(--corners);
 	border: 2px solid rgb(var(--trim));
