@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Random Color</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+		<link rel="stylesheet" href="../assets/views/tools/randomcolor/randcol.css" />
+		<script defer src="../assets/views/tools/randomcolor/randcol.js"></script>
+	</head>
+	<body>
+		<div class="full-screen-container">
+			<div class="container text-center">
+				<h4>Randomized Colour Palette</h4>
+				<hr />
+				<div class="row justify-content-center">
+					<% colors.forEach(col => { %>
+					<div class="col m-auto pb-2 text-center justify-content-center">
+						<button id="<%= col %>" class="colbox" style="background-color: <%= col %>" onclick=copyToClipboard(this.id)>
+							<span class="coltex"><%= col %></span>
+						</button>
+					</div>
+					<% }); %>
+					<div class="row">
+						<div class="col pb-1">
+							<button id="copybtn" class="cbtn p-1 mb-1" onclick="copyColors(<%=JSON.stringify( colors )%>)">Copy All</button>
+							<button id="reloadbtn" class="cbtn p-1 mb-1" onclick="window.location.reload()">Refresh</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
