@@ -23,7 +23,7 @@ router.get('/:tool', async (req, res) => {
 			response = await axios.post(`http://www.colourlovers.com/api/palettes/random?format=json`);
 			data = response.data[0];
 			colors = data.colors.map((c) => `#${c}`);
-			res.render(VIEWS.RANDCOL, { colors });
+			res.render(VIEWS.RANDCOL, { colors, endpoint: 'colorlovers' });
 			break;
 
 		case 'colormind':
@@ -35,7 +35,7 @@ router.get('/:tool', async (req, res) => {
 				let Hex = ConvertRGBtoHex(data[i][0], data[i][1], data[i][2]);
 				colors.push(Hex.toUpperCase());
 			}
-			res.render(VIEWS.RANDCOL, { colors });
+			res.render(VIEWS.RANDCOL, { colors, endpoint: 'colormind' });
 			break;
 
 		default:

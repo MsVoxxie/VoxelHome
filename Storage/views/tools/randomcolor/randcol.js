@@ -4,7 +4,7 @@ function copyColors(colors) {
 	// Style
 	clicked.innerHTML = 'Copied!';
 	setTimeout(() => {
-		clicked.innerHTML = 'Copy';
+		clicked.innerHTML = 'Copy All';
 	}, 3 * 1000);
 	// Copy stuff
 	const endPoint = `${colors.map((c) => `${c}`).join(' ')}`;
