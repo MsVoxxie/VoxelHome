@@ -31,7 +31,7 @@ h4 {
 }
 
 body {
-	background-color: #36393f;
+	/* background-color: #36393f; */
 	color: whitesmoke;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -47,7 +47,7 @@ hr {
 }
 
 .full-screen-container {
-	height: 90vh;
+	height: 100vh;
 	width: 100vw;
 	display: flex;
 	transition: none;
@@ -71,6 +71,7 @@ hr {
 	width: 100%;
 	height: 100px;
 	/* aspect-ratio: 2 / 1; */
+	transform: scale(0.8);
 	margin: auto;
 	border-radius: var(--corners);
 	border: 2px solid rgb(var(--trim));
@@ -83,11 +84,12 @@ hr {
 .coltex {
 	margin: 0;
 	padding: 0;
+	font-size: 1.15em;
 	line-height: 25px;
 	position: relative;
 	text-align: center;
 	mix-blend-mode: difference;
-	text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
+	text-shadow: 0.1emem 0 black, 0 0.1emem black, -0.1emem 0 black, 0 -0.1emem black, -0.1emem -0.1emem black, -0.1emem 0.1emem black, 0.1emem -0.1emem black, 0.1emem 0.1emem black;
 }
 
 .colbox:hover > .coltex {

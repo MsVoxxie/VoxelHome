@@ -10,7 +10,6 @@ const Store = require('connect-mongo');
 const PORT = process.env.PORT || 3006;
 const passport = require('passport');
 const express = require('express');
-const bcrypt = require('bcrypt');
 const https = require('https');
 const path = require('path');
 const fs = require('fs');

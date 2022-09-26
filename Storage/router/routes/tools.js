@@ -1,4 +1,4 @@
-const { ConvertRGBtoHex, HexToRgb } = require('../../funcs/tools/colorFunctions');
+const { ConvertRGBtoHex, HexToRgb } = require('../../funcs/tools/randomcolor/colorFunctions');
 const router = require('express').Router();
 const axios = require('axios');
 const path = require('path');

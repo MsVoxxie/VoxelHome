@@ -1,11 +1,4 @@
-function updatePage() {
-	getTime();
-	setBackground();
-	updateServerStats();
-	setInterval(getTime, 1000);
-	setInterval(updateServerStats, 10 * 1000);
-	console.log(window.navigator.userLanguage || window.navigator.language);
-}
+document.addEventListener('DOMContentLoaded', updatePage);
 
 addEventListener('focus', (event) => {
 	const randHello = ['Hello!', 'Howdy!', 'Hey there!', 'Whats up?', 'Doing well?', 'Take it easy!', 'Welcome Home!'];
@@ -17,14 +10,12 @@ addEventListener('blur', (event) => {
 	document.title = randBye[Math.floor(Math.random() * randBye.length)];
 });
 
-function setBackground() {
-	const Backgrounds = ['bg-01.jpg', 'bg-02.jpg', 'bg-03.jpg', 'bg-04.jpg', 'bg-05.jpg', 'bg-06.jpg', 'bg-07.jpg', 'bg-08.jpg'];
-	const randomBackground = Backgrounds[Math.floor(Math.random() * Backgrounds.length)];
-	const DocStyle = document.getElementsByClassName('full-screen-container')[0].style;
-	DocStyle.backgroundImage = `url('./assets/imgs/backgrounds/${randomBackground}')`;
-	DocStyle.backgroundRepeat = 'no-repeat';
-	DocStyle.backgroundAttachment = 'fixed';
-	DocStyle.backgroundPosition = 'center center';
+function updatePage() {
+	getTime();
+	updateServerStats();
+	setInterval(getTime, 1000);
+	setInterval(updateServerStats, 10 * 1000);
+	console.log(window.navigator.userLanguage || window.navigator.language);
 }
 
 async function fetchAsync(url) {
