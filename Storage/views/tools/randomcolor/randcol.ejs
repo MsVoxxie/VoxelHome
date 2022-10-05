@@ -19,14 +19,14 @@
 				<div class="row colboxmain justify-content-center">
 					<% colors.forEach(col => { %>
 					<div class="col m-auto pb-2 text-center justify-content-center">
-						<button id="<%= col %>" class="colbox" style="background-color: <%= col %>" onclick="copyToClipboard(this.id)">
+						<button id="<%= col %>" class="colbox" style="background-color: <%= col %>" onclick="copySingle(this.id)">
 							<span class="coltex"><%= col %></span>
 						</button>
 					</div>
 					<% }); %>
 					<div class="row">
 						<div class="col pb-2">
-							<button id="copybtn" class="cbtn p-1 m-auto" onclick="copyColors(<%=JSON.stringify( colors )%>)">Copy All</button>
+							<button id="copybtn" class="cbtn p-1 m-auto" onclick="copyAll(<%=JSON.stringify( colors )%>)">Copy All</button>
 							<button id="reloadbtn" class="cbtn p-1 m-auto" onclick="refreshButton()">Generate</button>
 						</div>
 					</div>

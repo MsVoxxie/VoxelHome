@@ -1,4 +1,4 @@
-function copyColors(colors) {
+function copyAll(colors) {
 	const clicked = document.getElementById('copybtn');
 	clicked.innerHTML = 'Copied!';
 	setTimeout(() => {
@@ -9,7 +9,7 @@ function copyColors(colors) {
 	return;
 }
 
-function copyToClipboard(clk) {
+function copySingle(clk) {
 	const clicked = document.getElementById(clk);
 	const clkID = clicked.id;
 	clicked.innerHTML = `<span class="coltex">Copied</span>`;
@@ -25,7 +25,9 @@ function refreshButton() {
 	const clicked = document.getElementById('reloadbtn');
 	clicked.innerHTML = 'Generating';
 	animate(0.8);
-	window.location.reload();
+	setTimeout(() => {
+		window.location.reload();
+	}, 500);
 	return;
 }
 
@@ -35,4 +37,8 @@ function animate(endVal) {
 		box.style.transitionDelay = `0.${i}s`;
 		box.style.transform = `scale(${endVal})`;
 	});
+}
+
+function getScale(element) {
+	return element.style.transform.match(/scale\(([1-9\.])\)/)[1];
 }
