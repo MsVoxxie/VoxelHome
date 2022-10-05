@@ -17,8 +17,9 @@
 }
 
 :root {
-	--corners: 0.25em;
+	--corners: 0.3em;
 	--corners-rounder: 0.5em;
+	--border: .2em;
 	--primary: 70, 160, 180;
 	--dark: 35, 35, 35;
 	--dark-alt: 50, 50, 50;
@@ -65,7 +66,7 @@ hr {
 	backdrop-filter: blur(15px);
 	background-color: var(--color);
 	box-shadow: 0 0 15px 0 var(--color);
-	border: 2px solid rgb(var(--trim));
+	border: var(--border) solid rgb(var(--trim));
 	filter: drop-shadow(4px 4px 20px black);
 }
 
@@ -76,7 +77,7 @@ hr {
 	transform: scale(0.8);
 	margin: auto;
 	border-radius: var(--corners);
-	border: 2px solid rgb(var(--trim));
+	border: var(--border) solid rgb(var(--trim));
 }
 
 .colbox:hover {
@@ -107,7 +108,7 @@ hr {
 	backdrop-filter: none;
 	background-color: transparent;
 	border-radius: var(--corners);
-	border: 2px solid rgb(var(--trim));
+	border: var(--border) solid rgb(var(--trim));
 }
 
 .cbtn:hover {
