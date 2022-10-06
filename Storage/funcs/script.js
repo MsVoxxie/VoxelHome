@@ -12,10 +12,18 @@ addEventListener('blur', (event) => {
 
 function updatePage() {
 	getTime();
+	forceFocus();
 	updateServerStats();
 	setInterval(getTime, 1000);
 	setInterval(updateServerStats, 10 * 1000);
 	console.log(window.navigator.userLanguage || window.navigator.language);
+}
+
+function forceFocus() {
+	const autoFocusTarget = document.getElementById('search');
+	if (document.activeElement !== autoFocusTarget) {
+		autoFocusTarget.focus();
+	}
 }
 
 async function fetchAsync(url) {
