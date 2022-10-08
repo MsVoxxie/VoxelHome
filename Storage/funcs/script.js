@@ -26,6 +26,14 @@ function forceFocus() {
 	}
 }
 
+function clickAnimate(URL) {
+	const Container = document.getElementsByClassName('container')[0];
+	// Container.style.transform = 'translate(100);'
+	// setTimeout(() => {
+	window.location = URL;
+	// }, 15);
+}
+
 async function fetchAsync(url) {
 	let response = await fetch(url);
 	let data = await response.json();
@@ -43,14 +51,20 @@ async function updateServerStats() {
 	const DISK = document.getElementById('DISK');
 	const DISKText = document.getElementById('disk-title');
 
+	const SCREENSHOT = document.getElementById('SCREENSHOTS');
+	const SCREENSHOTText = document.getElementById('screenshots-title');
+
 	const HOSTNAME = document.getElementById('systemstats');
 
 	// Get Data
 	const serverData = await fetchAsync('https://api.voxxie.me/api/system/statistics');
+	const screenshotData = await fetchAsync('https://cdn.voxxie.me/count');
 
 	const CPUValue = Math.floor(serverData.CpuUsage);
 	const MEMValue = Math.floor(serverData.UsedMem);
 	const DISKValue = Math.floor(serverData.DiskUsage);
+	const SCREENSHOTFormatter = Intl.NumberFormat('en', { notation: 'compact' });
+	const SCREENSHOTValue = SCREENSHOTFormatter.format(screenshotData.total);
 
 	// Apply Data
 	CPU.style.width = `${CPUValue}%`;
@@ -61,6 +75,9 @@ async function updateServerStats() {
 
 	DISK.style.width = `${DISKValue}%`;
 	DISKText.innerHTML = `DISK: ${DISKValue}%`;
+
+	SCREENSHOT.style.width = '100%';
+	SCREENSHOTText.innerHTML = `Uploads: ${SCREENSHOTValue}`;
 
 	HOSTNAME.innerHTML = `${serverData.Hostname.toUpperCase()}`;
 }
