@@ -40,6 +40,7 @@ span {
 	width: 100vw;
 	display: flex;
 	transition: none;
+	position: relative;
 	align-items: center;
 	justify-content: center;
 }
@@ -61,19 +62,23 @@ span {
 	filter: drop-shadow(4px 4px 20px black);
 }
 
-.auth-granted {
-	position:absolute;
-	height: 25px;
-	width: 25px;
-	--color: rgb(var(--dark), 0.5);
+.auth-glow {
+	display: grid;
+	grid-gap: 0.25rem;
+	animation-duration: 2s;
+	animation-name: auth-color;
+	backdrop-filter: blur(15px);
 	border-radius: var(--corners);
-	backdrop-filter: blurr(15px);
+	grid-template-columns: auto 1.5fr;
+	--color: rgb(var(--dark), 0.5);
 	background-color: var(--color);
 	box-shadow: 0 0 15px 0 var(--color);
-	filter: drop-shadow(4px 4px 20px black);
-	animation-name: auth-color;
-	animation-duration: 2s;
 	animation-iteration-count: infinite;
+	filter: drop-shadow(4px 4px 20px black);
+}
+
+.auth-glow i {
+	padding: 0 0.25rem;
 }
 
 @keyframes auth-color {
@@ -86,21 +91,6 @@ span {
 	100% {
 		border: 2px solid rgb(var(--online), 0.5);
 	}
-}
-
-.auth-denied {
-	position:absolute;
-	height: 25px;
-	width: 25px;
-	--color: rgb(var(--dark), 0.5);
-	border-radius: var(--corners);
-	backdrop-filter: blurr(15px);
-	background-color: var(--color);
-	box-shadow: 0 0 15px 0 var(--color);
-	filter: drop-shadow(4px 4px 20px black);
-	animation-name: auth-color;
-	animation-duration: 2s;
-	animation-iteration-count: infinite;
 }
 
 .hidden {

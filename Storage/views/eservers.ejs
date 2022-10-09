@@ -14,9 +14,11 @@
 		<script defer type="module" src="../assets/funcs/randomBG.js"></script>
 	</head>
 	<body onload="onLoad()">
-		<div class="m-2 text-center alig auth-granted"><i class="bi bi-check2-circle"></i></div>
 		<div class="full-screen-container">
 			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-auto p-2 m-2 auth-glow"><i class="bi bi-check2-circle">Authorized</i></div>
+				</div>
 				<div class="row row-cols-md-4 row-cols-lg-5 justify-content-center">
 					<!-- Insert server tiles -->
 					<% Instances.forEach((instance, count) => { %>
