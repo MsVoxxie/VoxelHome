@@ -17,7 +17,7 @@
 		<div class="m-2 text-center alig auth-denied"><i class="bi bi-x-circle"></i></div>
 		<div class="full-screen-container">
 			<div class="container">
-				<div class="row row-cols-2 justify-content-center">
+				<div class="row row-cols-md-4 row-cols-lg-5 justify-content-center">
 					<!-- Insert server tiles -->
 					<% Instances.forEach((instance, count) => { %>
 					<div class="col-5 p-2 m-2 server-tile hidden <%= `${instance.Running ? 'online' : 'offline'}` %>" style="transition-delay: <%= `${(`${count}0` * 2)}ms` %>">

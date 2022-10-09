@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 *,
 *::before,
 *::after {
 	color: white;
 	font-weight: bold;
 	box-sizing: border-box;
-	font-family: 'Oxanium';
+	font-family: 'Roboto';
+	font-weight: normal;
 	transition-duration: 500ms;
 	transition-property: font-size, border-radius, transform;
 	transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -72,9 +74,11 @@ body {
 	mix-blend-mode: difference;
 	position: absolute;
 	text-align: center;
+	font-weight: bold;
 	line-height: 23px;
 	overflow: hidden;
 	color: #fff;
+	margin: auto;
 	right: 0;
 	left: 0;
 	top: 0;
@@ -123,6 +127,7 @@ hr {
 	margin: none;
 	padding: none;
 	cursor: pointer;
+	font-weight: bold;
 	color: rgb(var(--trim), 1);
 	background-color: transparent;
 }
@@ -134,9 +139,10 @@ hr {
 .hr-sect {
 	display: flex;
 	flex-basis: 100%;
+	font-weight: bolder;
 	align-items: center;
 	color: white;
-	margin: 8px 0px;
+	/* margin: 8px 0px; */
 }
 
 .hr-sect:before,
@@ -159,4 +165,33 @@ a:visited {
 
 a:hover {
 	color: gray;
+}
+
+/* Circle bars */
+.circle-bar {
+	background: conic-gradient(blue, 3.6deg, grey 0deg);
+	background-color: pink;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	position: relative;
+	display: flex;
+	height: 5rem;
+	width: 5rem;
+}
+
+.circle-bar::before {
+	background-color: purple;
+	position: absolute;
+	border-radius: 50%;
+	content: '';
+	height: 90%;
+	width: 90%;
+}
+
+.circle-value {
+	position: relative;
+	font-weight: 500;
+	font-size: 1rem;
+	color: pink;
 }
