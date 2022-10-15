@@ -3,7 +3,6 @@
 *,
 *::before,
 *::after {
-	color: white;
 	font-weight: bold;
 	box-sizing: border-box;
 	font-family: 'Roboto';
@@ -27,28 +26,30 @@
 
 body {
 	margin: 0;
+	padding: 0;
 }
 
 .full-screen-container {
-	height: 100vh;
-	width: 100vw;
 	display: flex;
-	transition: none;
-	align-items: center;
 	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
 }
 
 .container {
 	--color: rgb(var(--dark), 0.5);
-	color: white;
-	max-width: 620px;
+	max-width: 38rem;
 	position: relative;
 	border-radius: var(--corners);
-	backdrop-filter: blur(15px);
+	backdrop-filter: blur(0.9375rem);
 	background-color: var(--color);
-	box-shadow: 0 0 15px 0 var(--color);
-	border: 2px solid rgb(var(--trim));
-	filter: drop-shadow(4px 4px 20px black);
+	box-shadow: 0 0 0.9375rem 0 var(--color);
+	border: 0.125rem solid rgb(var(--trim));
+	filter: drop-shadow(0.25rem 0.25rem 1.25rem black);
+}
+
+.media-links {
+	color: white;
 }
 
 .server-tile {
@@ -58,11 +59,11 @@ body {
 
 .progress {
 	--color: rgb(var(--trim), 1);
-	height: 25px;
+	height: 1.5625rem;
 	border-radius: var(--corners);
-	backdrop-filter: blur(15px);
+	backdrop-filter: blur(0.9375rem);
 	background-color: var(--color);
-	border: 2px solid rgb(var(--trim));
+	border: 0.125rem solid rgb(var(--trim));
 }
 
 .progress-bar {
@@ -75,7 +76,7 @@ body {
 	position: absolute;
 	text-align: center;
 	font-weight: bold;
-	line-height: 23px;
+	line-height: 1.4375rem;
 	overflow: hidden;
 	color: #fff;
 	margin: auto;
@@ -85,41 +86,39 @@ body {
 }
 
 .clock {
-	font-size: 30px;
+	color: white;
+	font-size: 1.875rem;
 }
 
 .date {
-	font-size: 20px;
-}
-
-.search {
 	color: white;
-	font-size: 10px;
+	font-size: 1.25rem;
 }
 
-input {
-	width: 100%;
-	border: none;
-	font-size: 20px;
-	font-weight: normal;
-	text-align: center;
-	text-decoration: none;
-	box-sizing: border-box;
+.search input[type='text'] {
+	font-size: 1.15rem;
 	background-color: transparent;
-	text-shadow: 0px 0px 1px grey;
+	text-decoration: none;
+	text-align: center;
+	outline: none;
+	border: none;
+	color: grey;
 }
 
-textarea:focus,
-input:focus {
+.search input:focus,
+.search textarea:focus {
+	text-decoration: none;
+	text-align: center;
 	outline: none;
-	text-shadow: 0px 0px 1px white;
+	border: none;
+	color: white;
 }
 
 hr {
-	margin-top: 2px;
+	margin-top: 0.125rem;
 	background-color: inherit;
 	color: rgb(var(--trim), 1);
-	border: 1px solid rgb(var(--trim), 1);
+	border: 0.0625rem solid rgb(var(--trim), 1);
 }
 
 .txt-btn {
@@ -142,7 +141,6 @@ hr {
 	font-weight: bolder;
 	align-items: center;
 	color: white;
-	/* margin: 8px 0px; */
 }
 
 .hr-sect:before,
@@ -150,10 +148,10 @@ hr {
 	content: '';
 	flex-grow: 1;
 	background: white;
-	height: 2px;
-	font-size: 0px;
-	line-height: 0px;
-	margin: 0px 0px;
+	height: 0.125rem;
+	font-size: 0rem;
+	line-height: 0rem;
+	margin: 0rem 0rem;
 }
 
 a,
