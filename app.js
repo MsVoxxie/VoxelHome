@@ -1,23 +1,32 @@
 const init = require('./Storage/funcs/passport-config');
 const { APILogin } = require('./Storage/funcs/util');
 const helpers = require('./Storage/funcs/helpers');
-const { default: mongoose } = require('mongoose');
 const routes = require('./Storage/router/router');
 const Auth = require('./Storage/models/auth');
 const session = require('express-session');
 const flash = require('express-flash');
 const Store = require('connect-mongo');
-const PORT = process.env.PORT || 3006;
+const mongoose = require('mongoose');
 const passport = require('passport');
 const express = require('express');
 const https = require('https');
+const http = require('http');
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
+
+// Custom Requirements
+const logger = require('./Storage/funcs/logger');
+
+// Constants
+const config = require('./config.json');
+const PORT = config.port;
 const app = express();
 
 // Login to Mongo
-mongoose.connect(process.env.MONGOURL);
+mongoose.connect(process.env.MONGOURL).then(() => {
+	logger.info('MongoDB Successfully connected.');
+});
 
 // Init passport
 init(
@@ -46,15 +55,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
-
-// Views
-const Views = {
-	home: path.join(`${__dirname}/Storage/views/home.ejs`),
-	login: path.join(`${__dirname}/Storage/views/login.ejs`),
-	register: path.join(`${__dirname}/Storage/views/register.ejs`),
-	servers: path.join(`${__dirname}/Storage/views/servers.ejs`),
-	eservers: path.join(`${__dirname}/Storage/views/eservers.ejs`),
-};
 
 // Setup express use cases
 app.set('view engine', 'ejs');
@@ -85,10 +85,19 @@ app.use('/assets', express.static(assetPath));
 // 	}
 // });
 
-const AUTH = {
-	privateKey: fs.readFileSync('/etc/letsencrypt/live/home.voxxie.me/privkey.pem', 'utf8'),
-	certificate: fs.readFileSync('/etc/letsencrypt/live/home.voxxie.me/fullchain.pem', 'utf8'),
-	ca: fs.readFileSync('/etc/letsencrypt/live/home.voxxie.me/chain.pem', 'utf8'),
-};
+// Server
+let server;
+if (!config.ssl.useSSL) {
+	server = http.createServer(app);
+} else {
+	server = https.createServer(
+		{
+			key: fs.readFileSync(config.ssl.privateKeyPath, 'utf8'),
+			cert: fs.readFileSync(config.ssl.certificatePath, 'utf8'),
+		},
+		app
+	);
+}
 
-https.createServer({ key: AUTH.privateKey, cert: AUTH.certificate, ca: AUTH.ca }, app).listen(PORT, () => console.log(`Server Started on port: ${PORT}`));
+server.listen(PORT);
+logger.success(`Now listening on port: ${PORT}`);

@@ -23,54 +23,18 @@
 					</form>
 				</div>
 				<div class="col-12 hr-sect">
-					<button class="txt-btn" onclick='window.location.href="/eservers"'>META</button>
+					<button class="txt-btn" onclick='window.location.href="/addlist"'>META</button>
 				</div>
 				<div class="media-links">
 					<div class="row row-cols-2 row-cols-sm-3">
+						<% Items.forEach(item => { %>
 						<div class="col text-center">
-							<div class="col-12" style="font-size: 25px">/VOXXIE/</div>
-							<h5><a href="javascript:clickAnimate('https://stats.uptimerobot.com/4JEAGhzgoW')">Status Page</a></h5>
-							<h5><a href="javascript:clickAnimate('https://cdn.voxxie.me/FastDL/')">FastDL</a></h5>
-							<h5><a href="javascript:clickAnimate('https://cdn.voxxie.me/pac_content/')">Pac Content</a></h5>
-							<h5><a href="javascript:clickAnimate('/tools')">Tools</a></h5>
-							<!-- <h5><a href="https://cdn.voxxie.me/tools/">Tools</a></h5> -->
+							<div class="col-12" style="font-size: 25px">/<%= item.category %>/</div>
+							<% item.listItems.forEach((i) => { %>
+								<h5><a href="javascript:clickAnimate('<%= i.url %>')"><%= i.title %></a></h5>
+							<% }) %>
 						</div>
-
-						<div class="col text-center">
-							<div class="col-12" style="font-size: 25px">/MEDIA/</div>
-							<h5><a href="javascript:clickAnimate('https://youtube.com')">Youtube</a></h5>
-							<h5><a href="javascript:clickAnimate('https://twitter.com/home')">Twitter</a></h5>
-							<h5><a href="javascript:clickAnimate('https://github.com/')">Github</a></h5>
-						</div>
-
-						<div class="col text-center">
-							<div class="col-12" style="font-size: 25px">/SERVERS/</div>
-							<h5><a href="javascript:clickAnimate('https://web.voxxie.me/')">[VX]Web Panel</a></h5>
-							<h5><a href="javascript:clickAnimate('https://premium.bisecthosting.com/index.php?r=server/view&id=96654')">[BH] Creation 2</a></h5>
-						</div>
-
-						<div class="col text-center">
-							<div class="col-12" style="font-size: 25px">/MUSIC/</div>
-							<h5><a href="javascript:clickAnimate('https://music.youtube.com/channel/UCxJrBLPnyUIt6K33m9ZcsqA')">Sabaton</a></h5>
-							<h5><a href="javascript:clickAnimate('https://music.youtube.com/channel/UC9LO_ioQYQay7CrsbacNqBQ')">Powerwolf</a></h5>
-							<h5>
-								<a href="javascript:clickAnimate('https://music.youtube.com/channel/UC4kvyaS69H_1PDmZMsu43Dw')">Streetlight<br />Manifesto</a>
-							</h5>
-							<h5><a href="javascript:clickAnimate('https://music.youtube.com/channel/UCnYKC_TAu0dlCPxJsPCJdgA')">Mystery Skulls</a></h5>
-						</div>
-
-						<div class="col text-center">
-							<div class="col-12" style="font-size: 25px">/SHOPPING/</div>
-							<h5><a href="javascript:clickAnimate('https://www.amazon.com/')">Amazon</a></h5>
-							<h5><a href="javascript:clickAnimate('https://ych.art/')">YCH</a></h5>
-						</div>
-
-						<div class="col text-center">
-							<div class="col-12" style="font-size: 25px">/OTHER/</div>
-							<h5><a href="javascript:clickAnimate('https://www.curseforge.com/minecraft/modpacks/creation-2/files')">Creation 2</a></h5>
-							<h5><a href="javascript:clickAnimate('https://drive.google.com/drive/my-drive')">Google Drive</a></h5>
-							<h5><a href="javascript:clickAnimate('https://mail.google.com/mail/u/0/')">Gmail</a></h5>
-						</div>
+						<% }); %>
 					</div>
 				</div>
 				<div class="col-12 hr-sect">
