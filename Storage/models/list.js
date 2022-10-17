@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const listSchema = new mongoose.Schema({
+	priority: {
+		type: Number,
+		required: true,
+	},
 	category: {
 		type: String,
 		required: true,

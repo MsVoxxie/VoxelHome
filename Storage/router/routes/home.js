@@ -6,7 +6,7 @@ router.get('/', async (req, res) => {
 	const HOME = path.join(__dirname, '../../views/home.ejs');
 
 	// Get List
-	const Items = await List.find();
+	const Items = await List.find().sort({ priority: 1 });
 
 	res.render(HOME, {
 		Items,
