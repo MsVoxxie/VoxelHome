@@ -85,17 +85,63 @@ body {
 	top: 0;
 }
 
+.digital-container {
+	max-width: 20.9375rem;
+	margin: auto;
+	position: relative;
+	padding: 1.25rem 0 1.25rem 0;
+	margin-bottom: 1.25rem;
+	display: flex;
+	justify-content: center;
+	place-items: center;
+}
+
 .clock {
+	position: absolute;
 	color: white;
 	font-size: 1.875rem;
+	opacity: 1;
+	transition: 500ms opacity;
+}
+
+.clock-pdt {
+	position: absolute;
+	color: white;
+	font-size: 1.875rem;
+	opacity: 0;
+	transition: 500ms opacity;
 }
 
 .date {
+	top: 2.1875rem;
+	position: absolute;
 	color: white;
 	font-size: 1.25rem;
+	opacity: 1;
+	transition: 500ms opacity;
+}
+
+.date-pdt {
+	top: 2.1875rem;
+	position: absolute;
+	color: white;
+	font-size: 1.25rem;
+	opacity: 0;
+	transition: 500ms opacity;
+}
+
+.digital-container:hover > .clock-pdt,
+.digital-container:hover > .date-pdt {
+	opacity: 1;
+}
+
+.digital-container:hover > .clock,
+.digital-container:hover > .date {
+	opacity: 0;
 }
 
 .search input[type='text'] {
+	padding-top: 1.25rem;
 	font-size: 1.15rem;
 	background-color: transparent;
 	text-decoration: none;

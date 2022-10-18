@@ -12,9 +12,11 @@ addEventListener('blur', (event) => {
 
 function updatePage() {
 	getTime();
+	getTimePDT();
 	forceFocus();
 	updateServerStats();
 	setInterval(getTime, 1000);
+	setInterval(getTimePDT, 1000);
 	setInterval(updateServerStats, 10 * 1000);
 	console.log(window.navigator.userLanguage || window.navigator.language);
 }
@@ -99,10 +101,9 @@ function getTime() {
 	}
 
 	var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
 	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-	var now = new Date();
+	var timeZone = new Date().toLocaleString('en-us', { timeZone: 'America/Toronto' });
+	var now = new Date(timeZone);
 
 	//Date
 	var wd = days[now.getDay()];
@@ -136,6 +137,64 @@ function getTime() {
 	const CurDate = `\nToday Is ${wd} ${mm} ${dd}`;
 	const clock = document.getElementById('clock');
 	const date = document.getElementById('date');
+
+	clock.innerHTML = CurTime;
+	date.innerHTML = CurDate;
+}
+
+function getTimePDT() {
+	function daySuffix(i) {
+		var j = i % 10,
+			k = i % 100;
+		if (j == 1 && k != 11) {
+			return i + 'st';
+		}
+		if (j == 2 && k != 12) {
+			return i + 'nd';
+		}
+		if (j == 3 && k != 13) {
+			return i + 'rd';
+		}
+		return i + 'th';
+	}
+
+	var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+	var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	var timeZone = new Date().toLocaleString('en-us', { timeZone: 'America/Los_Angeles' });
+	var now = new Date(timeZone);
+
+	//Date
+	var wd = days[now.getDay()];
+	var dd = daySuffix(now.getDate());
+	var mm = now.getMonth() + 1;
+	mm = months[mm - 1];
+
+	//24h
+	var TwentyFourHour = now.getHours();
+	var hour = now.getHours();
+	var min = now.getMinutes();
+	var sec = now.getSeconds();
+	if (hour.toString().length < 2) hour = '0' + hour;
+	if (sec.toString().length < 2) sec = '0' + sec;
+
+	var mid = 'PM';
+	if (min < 10) {
+		min = '0' + min;
+	}
+	if (hour > 12) {
+		hour = hour - 12;
+	}
+	if (hour == 0) {
+		hour = 12;
+	}
+	if (TwentyFourHour < 12) {
+		mid = 'AM';
+	}
+
+	const CurTime = `The Time Is ${hour}:${min}:${sec} ${mid}`;
+	const CurDate = `\nToday Is ${wd} ${mm} ${dd}`;
+	const clock = document.getElementById('clock-pdt');
+	const date = document.getElementById('date-pdt');
 
 	clock.innerHTML = CurTime;
 	date.innerHTML = CurDate;
