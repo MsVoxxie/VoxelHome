@@ -191,7 +191,7 @@ function getTimePDT() {
 		mid = 'AM';
 	}
 
-	const CurTime = `The Time Is ${hour}:${min}:${sec} ${mid}`;
+	const CurTime = `PDT Time Is ${hour}:${min}:${sec} ${mid}`;
 	const CurDate = `\nToday Is ${wd} ${mm} ${dd}`;
 	const clock = document.getElementById('clock-pdt');
 	const date = document.getElementById('date-pdt');
