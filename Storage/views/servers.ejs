@@ -16,9 +16,6 @@
 	<body>
 		<div class="full-screen-container">
 			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-auto p-2 m-2 auth-glow"><i class="bi bi-x-circle"></i>Unauthorized</div>
-				</div>
 				<div class="row row-cols-md-4 row-cols-lg-5 justify-content-center">
 					<!-- Insert server tiles -->
 					<% Instances.forEach((instance, count) => { %>
@@ -45,7 +42,7 @@
 						</div>
 					</div>
 					<% }) %>
-					<div class="col-5 m-2"></div>
+					<!-- <div class="col-5 p-2 m-2"></div> -->
 				</div>
 			</div>
 		</div>

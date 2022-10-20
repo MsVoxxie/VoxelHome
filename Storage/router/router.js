@@ -9,7 +9,6 @@ const addList = require('./routes/addlist');
 const Tools = require('./routes/tools');
 
 const Servers = require('./routes/servers');
-const EServers = require('./routes/eservers');
 
 router.use('/', Home);
 
@@ -20,6 +19,5 @@ router.use('/addlist', addList);
 router.use('/tools', Tools);
 
 router.use('/servers', Servers);
-router.use('/eservers', EServers);
 
 module.exports = router;
