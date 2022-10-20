@@ -34,7 +34,7 @@
 					<div class="row row-cols-2 row-cols-sm-3">
 						<% Items.forEach(item => { %>
 						<div class="col p-3 text-center">
-							<div class="col-12" style="font-size: 25px">/<%= item.category %>/</div>
+							<div class="col-12 category" style="font-size: 25px">/<%= item.category %>/</div>
 							<% item.listItems.forEach((i) => { %>
 							<h5><a href="javascript:clickAnimate('<%= i.url %>')"><%= i.title %></a></h5>
 							<% }) %>

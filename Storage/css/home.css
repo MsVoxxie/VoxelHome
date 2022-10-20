@@ -53,6 +53,10 @@ body {
 	color: white;
 }
 
+.category {
+	font-weight: bolder;
+}
+
 .server-tile {
 	align-items: center;
 	vertical-align: middle;
