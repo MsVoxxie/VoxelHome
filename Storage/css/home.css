@@ -38,6 +38,7 @@ body {
 
 .container {
 	--color: rgb(var(--dark), 0.5);
+	padding: .8rem;
 	max-width: 38rem;
 	position: relative;
 	border-radius: var(--corners);
@@ -101,7 +102,7 @@ body {
 	color: white;
 	font-size: 1.875rem;
 	opacity: 1;
-	transition: 500ms opacity;
+	transition: 150ms opacity;
 }
 
 .clock-pdt {
@@ -109,7 +110,7 @@ body {
 	color: white;
 	font-size: 1.875rem;
 	opacity: 0;
-	transition: 500ms opacity;
+	transition: 150ms opacity;
 }
 
 .date {
@@ -118,7 +119,7 @@ body {
 	color: white;
 	font-size: 1.25rem;
 	opacity: 1;
-	transition: 500ms opacity;
+	transition: 150ms opacity;
 }
 
 .date-pdt {
@@ -127,7 +128,7 @@ body {
 	color: white;
 	font-size: 1.25rem;
 	opacity: 0;
-	transition: 500ms opacity;
+	transition: 150ms opacity;
 }
 
 .digital-container:hover > .clock-pdt,
