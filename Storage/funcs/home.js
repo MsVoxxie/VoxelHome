@@ -199,3 +199,56 @@ function getTimePDT() {
 	clock.innerHTML = CurTime;
 	date.innerHTML = CurDate;
 }
+
+// Background
+const wrapper = document.getElementById('tiles');
+
+const tileSize = 50;
+
+let columns = 0,
+	rows = 0;
+
+(columns = Math.floor(document.body.clientWidth / tileSize)), (rows = Math.floor(document.body.clientHeight / tileSize));
+
+const colors = ['rgb(299, 57, 53)', 'rgb(253, 216, 53)', 'rgb(240, 80, 30)', 'rgb(70, 175, 80)', 'rgb(30, 150, 243)', 'rgb(150, 30, 170)'];
+let count = -1;
+const handleOnClick = (index) => {
+	console.log('Clicked ' + index);
+	count = count + 1;
+	anime({
+		targets: '.tile',
+		backgroundColor: colors[count % (colors.length - 1)],
+		delay: anime.stagger(50, {
+			grid: [columns, rows],
+			from: index,
+		}),
+	});
+};
+
+const createTile = (index) => {
+	const tile = document.createElement('div');
+	tile.classList.add('tile');
+	return tile;
+};
+
+const createTiles = (quantity) => {
+	Array.from(Array(quantity)).map((tile, index) => {
+		wrapper.appendChild(createTile(index));
+	});
+};
+
+const createGrid = () => {
+	wrapper.innerHTML = '';
+
+	columns = Math.floor(document.body.clientWidth / tileSize);
+	rows = Math.floor(document.body.clientHeight / tileSize);
+
+	wrapper.style.setProperty('--columns', columns);
+	wrapper.style.setProperty('--rows', rows);
+
+	createTiles(columns * rows);
+};
+
+createGrid();
+
+window.onresize = () => createGrid();
