@@ -42,6 +42,11 @@ async function fetchAsync(url) {
 	return data;
 }
 
+let CPUOld = 0;
+let MEMOld = 0;
+let DISKOld = 0;
+let SCREENSHOTOld = 0;
+
 async function updateServerStats() {
 	// Selectors
 	const CPU = document.getElementById('CPU');
@@ -69,17 +74,61 @@ async function updateServerStats() {
 	const SCREENSHOTValue = SCREENSHOTFormatter.format(screenshotData.total);
 
 	// Apply Data
-	CPU.style.width = `${CPUValue}%`;
-	CPUText.innerHTML = `CPU: ${CPUValue}%`;
+	const CPUCounter = { value: CPUOld, width: CPUOld };
+	anime({
+		targets: CPUCounter,
+		value: CPUValue,
+		width: CPUValue,
+		round: 1,
+		easing: 'linear',
+		update: function () {
+			CPU.style.width = `${CPUCounter.width}%`;
+			CPUText.innerHTML = `MEM: ${CPUCounter.value}%`;
+			CPUOld = CPUCounter.value;
+		},
+	});
 
-	MEM.style.width = `${MEMValue}%`;
-	MEMText.innerHTML = `MEM: ${MEMValue}%`;
+	const MEMCounter = { value: MEMOld, width: MEMOld };
+	anime({
+		targets: MEMCounter,
+		value: MEMValue,
+		width: MEMValue,
+		round: 1,
+		easing: 'linear',
+		update: function () {
+			MEM.style.width = `${MEMCounter.width}%`;
+			MEMText.innerHTML = `MEM: ${MEMCounter.value}%`;
+			MEMOld = MEMCounter.value;
+		},
+	});
 
-	DISK.style.width = `${DISKValue}%`;
-	DISKText.innerHTML = `DISK: ${DISKValue}%`;
+	const DISKCounter = { value: DISKOld, width: DISKOld };
+	anime({
+		targets: DISKCounter,
+		value: DISKValue,
+		width: DISKValue,
+		round: 1,
+		easing: 'linear',
+		update: function () {
+			DISK.style.width = `${DISKCounter.width}%`;
+			DISKText.innerHTML = `DISK: ${DISKCounter.value}%`;
+			DISKOld = DISKCounter.value;
+		},
+	});
 
 	SCREENSHOT.style.width = '100%';
-	SCREENSHOTText.innerHTML = `Uploads: ${SCREENSHOTValue}`;
+	const SCREENSHOTCounter = { value: SCREENSHOTOld, width: SCREENSHOTOld };
+	anime({
+		targets: SCREENSHOTCounter,
+		value: SCREENSHOTValue,
+		width: SCREENSHOTValue,
+		round: 1,
+		easing: 'linear',
+		update: function () {
+			SCREENSHOT.style.width = `${(SCREENSHOTCounter.width / 100) * 10}%`;
+			SCREENSHOTText.innerHTML = `Uploads: ${SCREENSHOTCounter.value}`;
+		},
+	});
 
 	HOSTNAME.innerHTML = `${serverData.Hostname.toUpperCase()}`;
 }
