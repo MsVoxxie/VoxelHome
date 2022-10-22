@@ -127,6 +127,7 @@ async function updateServerStats() {
 		update: function () {
 			SCREENSHOT.style.width = `${(SCREENSHOTCounter.width / 100) * 10}%`;
 			SCREENSHOTText.innerHTML = `Uploads: ${SCREENSHOTCounter.value}`;
+			SCREENSHOTOld = SCREENSHOTCounter.value;
 		},
 	});
 
