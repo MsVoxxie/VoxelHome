@@ -7,80 +7,118 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
 		<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 		<script defer src="./assets/funcs/modules/anime.min.js"></script>
-		<script defer src="./assets/funcs/grid-background.js"></script>
+		<!-- <script defer src="./assets/funcs/grid-background.js"></script> -->
 		<script defer src="./assets/funcs/home.js"></script>
 		<script defer type="module" src="../assets/funcs/randomBG.js"></script>
 		<link rel="stylesheet" href="./assets/css/home.css" />
 	</head>
 	<body>
-		<div class="gradient" id="gradient">
-			<div class="full-screen-container">
-				<div id="tiles"></div>
-				<div class="container text-center">
-					<div class="digital-container">
-						<div class="clock pt-2" id="clock"><h1>Loading...</h1></div>
-						<div class="clock-pdt pt-2" id="clock-pdt"><h1>Loading...</h1></div>
-						<div class="date" id="date"><h3>Loading...</h3></div>
-						<div class="date-pdt" id="date-pdt"><h3>Loading...</h3></div>
-					</div>
-					<div class="search" id="search">
-						<form action="https://google.com/search" method="GET">
-							<input class="pt-1 pb-0" placeholder="Search" id="search" type="text" name="q" autocomplete="off" autofocus />
-						</form>
-					</div>
+		<nav>
+			<ul class="squircles semi-trans">
+				<!-- * AddList -->
+				<li class="squircle semi-trans">
+					<a href="https://home.voxxie.me/addlist">
+						<div class="squircle-icon">
+							<i class="bi bi-card-list" width="50" height="50"></i>
+						</div>
+						<div class="popper">
+							<div class="popper-text">Add Items to Menu</div>
+						</div>
+					</a>
+				</li>
+				<!-- * Servers -->
+				<li class="squircle semi-trans">
+					<a href="https://home.voxxie.me/servers">
+						<div class="squircle-icon">
+							<i class="bi bi-server" width="50" height="50"></i>
+						</div>
+						<div class="popper">
+							<div class="popper-text">Game Servers</div>
+						</div>
+					</a>
+				</li>
+				<!-- * XIVMods -->
+				<li class="squircle semi-trans">
+					<a href="https://www.xivmodarchive.com/">
+						<div class="squircle-icon">
+							<i class="bi bi-file-earmark-zip-fill" width="50" height="50"></i>
+						</div>
+						<div class="popper">
+							<div class="popper-text">XIV Mod Archive</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<!-- <div class="gradient" id="gradient"> -->
+		<div class="full-screen-container">
+			<!-- <div id="tiles"></div> -->
+			<div class="container text-center semi-trans">
+				<div class="digital-container">
+					<div class="clock pt-2" id="clock"><h1>Loading...</h1></div>
+					<div class="clock-pdt pt-2" id="clock-pdt"><h1>Loading...</h1></div>
+					<div class="date" id="date"><h3>Loading...</h3></div>
+					<div class="date-pdt" id="date-pdt"><h3>Loading...</h3></div>
+				</div>
+				<div class="search" id="search">
+					<form action="https://google.com/search" method="GET">
+						<input class="pt-1 pb-0" placeholder="Search" id="search" type="text" name="q" autocomplete="off" autofocus />
+					</form>
+				</div>
 
-					<div class="col-12 hr-sect">
-						<button class="txt-btn" onclick='window.location.href="/addlist"'>META</button>
+				<div class="col-12 hr-sect">
+					<button class="txt-btn" onclick='window.location.href="/addlist"'>META</button>
+				</div>
+				<div class="media-links">
+					<div class="row row-cols-2 row-cols-sm-3">
+						<% Items.forEach(item => { %>
+						<div class="col p-3 text-center">
+							<div class="col-12 category" style="font-size: 25px">/<%= item.category %>/</div>
+							<% item.listItems.forEach((i) => { %>
+							<h5><a href="javascript:clickAnimate('<%= i.url %>')"><%= i.title %></a></h5>
+							<% }) %>
+						</div>
+						<% }); %>
 					</div>
-					<div class="media-links">
-						<div class="row row-cols-2 row-cols-sm-3">
-							<% Items.forEach(item => { %>
-							<div class="col p-3 text-center">
-								<div class="col-12 category" style="font-size: 25px">/<%= item.category %>/</div>
-								<% item.listItems.forEach((i) => { %>
-								<h5><a href="javascript:clickAnimate('<%= i.url %>')"><%= i.title %></a></h5>
-								<% }) %>
-							</div>
-							<% }); %>
+				</div>
+				<div class="col-12 hr-sect">
+					<button class="txt-btn" id="systemstats" onclick='window.location.href="/servers"'>Loading...</button>
+				</div>
+				<div class="row row-cols-2 row-cols-sm-4">
+					<!-- Screenshots -->
+					<div class="col pb-2">
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped progress-bar-animated" id="SCREENSHOTS" role="progressbar" style="width: 0%"></div>
+							<div class="progress-bar-title screenshots-title" id="screenshots-title">Loading...</div>
 						</div>
 					</div>
-					<div class="col-12 hr-sect">
-						<button class="txt-btn" id="systemstats" onclick='window.location.href="/servers"'>Loading...</button>
+					<!-- CPU -->
+					<div class="col pb-2">
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped progress-bar-animated" id="CPU" role="progressbar" style="width: 0%"></div>
+							<div class="progress-bar-title cpu-title" id="cpu-title">Loading...</div>
+						</div>
 					</div>
-					<div class="row row-cols-2 row-cols-sm-4">
-						<!-- Screenshots -->
-						<div class="col pb-2">
-							<div class="progress">
-								<div class="progress-bar progress-bar-striped progress-bar-animated" id="SCREENSHOTS" role="progressbar" style="width: 0%"></div>
-								<div class="progress-bar-title screenshots-title" id="screenshots-title">Loading...</div>
-							</div>
+					<!-- Memory -->
+					<div class="col pb-2">
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped progress-bar-animated" id="MEM" role="progressbar" style="width: 0%"></div>
+							<div class="progress-bar-title mem-title" id="mem-title">Loading...</div>
 						</div>
-						<!-- CPU -->
-						<div class="col pb-2">
-							<div class="progress">
-								<div class="progress-bar progress-bar-striped progress-bar-animated" id="CPU" role="progressbar" style="width: 0%"></div>
-								<div class="progress-bar-title cpu-title" id="cpu-title">Loading...</div>
-							</div>
-						</div>
-						<!-- Memory -->
-						<div class="col pb-2">
-							<div class="progress">
-								<div class="progress-bar progress-bar-striped progress-bar-animated" id="MEM" role="progressbar" style="width: 0%"></div>
-								<div class="progress-bar-title mem-title" id="mem-title">Loading...</div>
-							</div>
-						</div>
-						<!-- Disk -->
-						<div class="col pb-2">
-							<div class="progress">
-								<div class="progress-bar progress-bar-striped progress-bar-animated" id="DISK" role="progressbar" style="width: 0%"></div>
-								<div class="progress-bar-title disk-title" id="disk-title">Loading...</div>
-							</div>
+					</div>
+					<!-- Disk -->
+					<div class="col pb-2">
+						<div class="progress">
+							<div class="progress-bar progress-bar-striped progress-bar-animated" id="DISK" role="progressbar" style="width: 0%"></div>
+							<div class="progress-bar-title disk-title" id="disk-title">Loading...</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!-- </div> -->
 	</body>
 </html>
