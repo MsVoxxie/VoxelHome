@@ -83,7 +83,7 @@ async function updateServerStats() {
 		easing: 'linear',
 		update: function () {
 			CPU.style.width = `${CPUCounter.width}%`;
-			CPUText.innerHTML = `MEM: ${CPUCounter.value}%`;
+			CPUText.innerHTML = `CPU: ${CPUCounter.value}%`;
 			CPUOld = CPUCounter.value;
 		},
 	});
