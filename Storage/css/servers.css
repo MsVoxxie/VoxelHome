@@ -5,7 +5,7 @@
 	color: white;
 	box-sizing: border-box;
 	font-family: 'Oxanium';
-	transition: 0.2s ease-in-out;
+	font-weight: normal;
 	overflow: -moz-scrollbars-none;
 	scrollbar-width: none;
 }
@@ -35,6 +35,11 @@ span {
 	white-space: nowrap;
 }
 
+hr {
+	padding: 0;
+	margin: 0;
+}
+
 .full-screen-container {
 	height: 100vh;
 	width: 100vw;
@@ -46,20 +51,51 @@ span {
 }
 
 .container {
-	height: 95vh;
+	max-height: 100vh;
 	overflow: scroll;
+	padding: 0.5rem;
 }
 
-.server-tile {
-	min-width: 300px;
-	font-weight: bold;
-	font-size: 1.15em;
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 0.5rem;
+}
+
+.system-info {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.server-card {
+	padding: 0.8rem;
 	--color: rgb(var(--dark), 0.5);
 	border-radius: var(--corners);
 	backdrop-filter: blur(15px);
 	background-color: var(--color);
-	box-shadow: 0 0 15px 0 var(--color);
-	filter: drop-shadow(4px 4px 20px black);
+	filter: drop-shadow(0 2px 5px black);
+}
+
+.server-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.server-body {
+	font-size: 0.9rem;
+}
+
+.server-footer {
+	margin-top: 1rem;
+}
+
+.server-header .instance-name {
+	float: left;
+}
+
+.server-header .instance-game {
+	float: right;
+	opacity: 0.55;
 }
 
 .auth-glow {
@@ -106,12 +142,14 @@ span {
 	translate: 0%;
 }
 
-.server-tile.online {
+.server-card.online {
 	border: 2px solid rgb(var(--online), 0.5);
+	box-shadow: 0 0 10px 1px rgb(var(--online), 0.5);
 }
 
-.server-tile.offline {
-	border: 2px solid rgb(var(--offline), 0.5);
+.server-card.offline {
+	border: 2px dashed rgb(var(--offline), 0.5);
+	box-shadow: 0 0 10px 1px rgb(var(--offline), 0.5);
 }
 
 .hr-sect {

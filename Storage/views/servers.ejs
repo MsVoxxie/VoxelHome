@@ -16,33 +16,36 @@
 	<body>
 		<div class="full-screen-container">
 			<div class="container">
-				<div class="row row-cols-md-4 row-cols-lg-5 justify-content-center">
+				<div class="system-info hidden">
+					<span><%= FriendlyName %></span>
+					<span><%= Sysinfo.PlatformInfo.PlatformName %></span>
+					<span><%= Sysinfo.PlatformInfo.CPUInfo.ModelName %></span>
+				</div>
+				<div class="grid-container">
 					<!-- Insert server tiles -->
 					<% Instances.forEach((instance, count) => { %>
-					<div class="col-5 p-2 m-2 server-tile hidden <%= `${instance.Running ? 'online' : 'offline'}` %>" style="transition-delay: <%= `${(`${count}0` * 2)}ms` %>">
-						<div class="row">
-							<div class="col">
-								<span style="float: left"><%= instance.FriendlyName %></span>
+					<div class="server-card hidden <%= `${instance.Running ? 'online' : 'offline'}` %>">
+						<div class="server-header">
+							<span class="instance-name"><%= instance.FriendlyName %></span>
+							<span class="instance-game"><%= instance.Module %></span>
+						</div>
+						<hr />
+						<div class="server-footer">
+							<div class="progress m-1">
+								<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= instance.Metrics.CPUPer %>%"></div>
+								<div class="progress-bar-title">CPU Usage <%= instance.Metrics.CPUPer %>%</div>
 							</div>
-							<div class="col">
-								<span style="float: right; color: rgb(255, 255, 255, 0.15)"><%= instance.Module %></span>
+							<div class="progress m-1">
+								<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= instance.Metrics.MemPer %>%"></div>
+								<div class="progress-bar-title">Memory Usage <%= instance.Metrics.MemUsed %></div>
 							</div>
-						</div>
-						<div class="progress m-1">
-							<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= instance.Metrics.CPUPer %>%"></div>
-							<div class="progress-bar-title">CPU Usage <%= instance.Metrics.CPUPer %>%</div>
-						</div>
-						<div class="progress m-1">
-							<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= instance.Metrics.MemPer %>%"></div>
-							<div class="progress-bar-title">Memory Usage <%= instance.Metrics.MemUsed %></div>
-						</div>
-						<div class="progress m-1">
-							<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= instance.Metrics.UsersPer %>%"></div>
-							<div class="progress-bar-title">Active Users <%= instance.Metrics.UsersTotal %></div>
+							<div class="progress m-1">
+								<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: <%= instance.Metrics.UsersPer %>%"></div>
+								<div class="progress-bar-title">Active Users <%= instance.Metrics.UsersTotal %></div>
+							</div>
 						</div>
 					</div>
 					<% }) %>
-					<!-- <div class="col-5 p-2 m-2"></div> -->
 				</div>
 			</div>
 		</div>

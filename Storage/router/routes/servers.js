@@ -8,7 +8,10 @@ router.get('/', async (req, res) => {
 	const Servers = [];
 	const API = await APILogin();
 	const allInstances = await API.ADSModule.GetInstancesAsync();
+	const Sysinfo = await API.ADSModule.GetTargetInfoAsync();
+	const FriendlyName = allInstances[0].FriendlyName;
 	allInstances[0].AvailableInstances.map((inst) => {
+		if (inst.Module === 'ADS') return;
 		Servers.push({
 			FriendlyName: inst.FriendlyName,
 			InternalName: inst.InstanceName,
@@ -27,7 +30,7 @@ router.get('/', async (req, res) => {
 		});
 	});
 	Servers.sort((a, b) => b.Running - a.Running);
-	res.render(SERVERS, { Instances: Servers });
+	res.render(SERVERS, { Instances: Servers, Sysinfo, FriendlyName });
 });
 
 module.exports = router;
