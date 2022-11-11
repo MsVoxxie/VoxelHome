@@ -120,12 +120,15 @@ hr {
 @keyframes auth-color {
 	0% {
 		border: 2px solid rgb(var(--online), 0.5);
+		box-shadow: 0 0 10px 1px rgb(var(--fade1), 0.5);
 	}
 	50% {
 		border: 2px solid rgb(var(--offline), 0.5);
+		box-shadow: 0 0 10px 1px rgb(var(--offline), 0.5);
 	}
 	100% {
 		border: 2px solid rgb(var(--online), 0.5);
+		box-shadow: 0 0 10px 1px rgb(var(--online), 0.5);
 	}
 }
 

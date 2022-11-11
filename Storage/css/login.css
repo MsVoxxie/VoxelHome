@@ -31,11 +31,14 @@ h1 {
 @keyframes color-cycle {
 	0% {
 		border: 2px solid rgb(var(--fade1), 0.5);
+		box-shadow: 0 0 10px 1px rgb(var(--fade1), 0.5);
 	}
 	50% {
 		border: 2px solid rgb(var(--fade2), 0.5);
+		box-shadow: 0 0 10px 1px rgb(var(--fade2), 0.5);
 	}
 	100% {
 		border: 2px solid rgb(var(--fade1), 0.5);
+		box-shadow: 0 0 10px 1px rgb(var(--fade1), 0.5);
 	}
 }
